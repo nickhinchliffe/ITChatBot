@@ -18,6 +18,11 @@ class App extends React.Component {
     })
   }
   
+  componentDidMount(){
+    var welcomeMessage = "Hello! Who am I speaking with today?"
+    this.updateMessages(welcomeMessage);
+  }
+
   render() {
     return(
       <div>
@@ -53,13 +58,18 @@ class UserInput extends React.Component {
     this.setState({
       message: ''
     })
+    Array.from(document.querySelectorAll("input#userInput")).forEach(
+      input => (input.value = "")
+    );
   }
+
+  
 
   render(){
     return(
       <div>
         <label>
-          <input type="text" id="userInput" onChange={e => this.setState({message: e.target.value})}/>
+          <input type="text" id="userInput" placeholder="Aa" onChange={e => this.setState({message: e.target.value})}/>
         </label>
         <input type="submit" value="Submit" onClick={() => this.handleSubmit()}/>
       </div>
