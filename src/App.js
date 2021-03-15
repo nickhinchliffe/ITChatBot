@@ -32,11 +32,9 @@ class MessageArea extends React.Component {
   render() {
     return(
       <div>
-        <ul>
           {this.props.messages.map(item => (
-            <li key={item}>{item}</li>
+            <div key={item}>{item}</div>
           ))}
-        </ul>
       </div>
       );
   }
