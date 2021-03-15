@@ -5,14 +5,16 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: "Hello"
+      messages: []
     };
 
   }
-
+  
   updateMessages = (message) => {
+    const cState = this.state.messages
+    const updatedState = cState.concat(message);
     this.setState({
-      messages : message
+      messages : updatedState
     })
   }
   
@@ -30,7 +32,11 @@ class MessageArea extends React.Component {
   render() {
     return(
       <div>
-        {this.props.messages}
+        <ul>
+          {this.props.messages.map(item => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
       </div>
       );
   }
