@@ -10,17 +10,17 @@ class App extends React.Component {
 
   }
   
-  updateMessages = (message) => {
+  updateMessages = (obj) => {
     const cState = this.state.messages
-    const updatedState = cState.concat(message);
+    const updatedState = cState.concat(obj);
     this.setState({
       messages : updatedState
     })
   }
   
+  
+
   componentDidMount(){
-    var welcomeMessage = "Hello! Who am I speaking with today?"
-    this.updateMessages(welcomeMessage);
   }
 
   render() {
@@ -28,6 +28,7 @@ class App extends React.Component {
       <div>
         <MessageArea messages={this.state.messages}/>
         <UserInput updateMessages = {this.updateMessages}/>
+        <div></div>
       </div>
       );
   }
@@ -36,11 +37,14 @@ class App extends React.Component {
 class MessageArea extends React.Component {
   render() {
     return(
-      <div>
+        <div>
           {this.props.messages.map(item => (
-            <div key={item}>{item}</div>
-          ))}
-      </div>
+            <div style = {{border: '1px solid black'}}>
+              <div class="userNameDisp" key={item}>{item.user}</div>
+              <div class="userTextDisp"key={item}>{item.text}</div>
+            </div>
+            ))}
+        </div>
       );
   }
 }
@@ -49,14 +53,15 @@ class UserInput extends React.Component {
   constructor(){
     super();
     this.state ={
-      message: ''
+      user : 'User:',
+      text : ''
     };
   }
 
   handleSubmit() {
-    this.props.updateMessages(this.state.message)
+    this.props.updateMessages(this.state)
     this.setState({
-      message: ''
+      text: ''
     })
     Array.from(document.querySelectorAll("input#userInput")).forEach(
       input => (input.value = "")
@@ -64,12 +69,11 @@ class UserInput extends React.Component {
   }
 
   
-
   render(){
     return(
-      <div>
+      <div style={{ position: 'fixed', bottom: '0',margin: 10 }}>
         <label>
-          <input type="text" id="userInput" placeholder="Aa" onChange={e => this.setState({message: e.target.value})}/>
+          <input type="text" id="userInput" placeholder="Aa" onChange={e => this.setState({text: e.target.value})}/>
         </label>
         <input type="submit" value="Submit" onClick={() => this.handleSubmit()}/>
       </div>
