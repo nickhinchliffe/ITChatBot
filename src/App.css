@@ -1,4 +1,12 @@
-div.test1{ 
-  position: fixed;
-  bottom: '0'
+div.userNameDisp{
+  color:blue
+}
+html{
+  background-image: url(background.png);
+  background-repeat: repeat-x;
+}
+.container{
+  background-color:whitesmoke;}
+.userTextDisp{
+  color: black
 }

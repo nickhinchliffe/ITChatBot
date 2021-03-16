@@ -1,4 +1,4 @@
-import './App.css';
+import {style} from './App.css';
 import React from 'react';
 
 class App extends React.Component {
@@ -20,15 +20,14 @@ class App extends React.Component {
   
   
 
-  componentDidMount(){
-  }
 
   render() {
     return(
       <div>
+        <div style={{display: "block", margin: "auto"}}>
         <MessageArea messages={this.state.messages}/>
         <UserInput updateMessages = {this.updateMessages}/>
-        <div></div>
+        </div>
       </div>
       );
   }
@@ -37,11 +36,11 @@ class App extends React.Component {
 class MessageArea extends React.Component {
   render() {
     return(
-        <div>
+        <div className="container" style = {{border: '1px solid black', display:"block", height: '500px' , width: '70%', margin:"auto"}}>
           {this.props.messages.map(item => (
-            <div style = {{border: '1px solid black'}}>
-              <div class="userNameDisp" key={item}>{item.user}</div>
-              <div class="userTextDisp"key={item}>{item.text}</div>
+            <div style= {{margin: "10px"}}>
+              <div className="userNameDisp" key={item}>{item.user}</div>
+              <div className="userTextDisp" key={item}>{item.text}</div>
             </div>
             ))}
         </div>
@@ -71,11 +70,13 @@ class UserInput extends React.Component {
   
   render(){
     return(
-      <div style={{ position: 'fixed', bottom: '0',margin: 10 }}>
+      <div>
+        <div className="Container" style={{position: "absolute", width:"15%", left:"287px"}}>
         <label>
           <input type="text" id="userInput" placeholder="Aa" onChange={e => this.setState({text: e.target.value})}/>
         </label>
         <input type="submit" value="Submit" onClick={() => this.handleSubmit()}/>
+        </div>
       </div>
     );
   }
