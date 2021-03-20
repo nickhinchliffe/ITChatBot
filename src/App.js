@@ -18,9 +18,15 @@ class App extends React.Component {
       messages : updatedState
     })
     axios.post("http://localhost:3001/", updatedState).then(res => {
-      console.log(res.data);
+      var msgBot = res.data.output.generic[0].text
+      const cState2 = this.state.messages
+      const botObj = {
+        user: 'ITSupportBot:',
+        text: msgBot
+      }
+      const updatedState2 = cState2.concat(botObj);
       this.setState({
-        response: res.data
+        messages: updatedState2
       })
     }).catch(e => {
       console.error(e);

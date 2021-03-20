@@ -5,17 +5,18 @@ const app = express()
 const AssistantV2 = require('ibm-watson/assistant/v2');
 const { IamAuthenticator } = require('ibm-watson/auth');
 const cors = require('cors')
+var check = 0;
 
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+var sessionIdValue;
 
 app.post('/', async function (req, res) {
-    console.log("Message from server: " + req.body);
+    console.log("Message from server: " + req.body.text);
     // Here's how you get the data from the front-end.
-    var messages = req.body
+    var messages = req.body.text;
     // init assistant
-    var sessionIdValue;
     var assistantIdValue = '398fd1c8-a06f-4fdc-b9f1-c553d1878907';
 
     const assistant = new AssistantV2({
@@ -27,25 +28,31 @@ app.post('/', async function (req, res) {
     });
     // get result from starting assistant service
     try {
-        await assistant.createSession({ assistantId: assistantIdValue })
-            .then(res =>{
-                sessionIdValue = JSON.stringify(res.result, null, 2);
+        if(check === 0){
+            await assistant.createSession({ assistantId: assistantIdValue })
+            .then(ans =>{
+                sessionIdValue = ans.result.session_id;
                 console.log(sessionIdValue);
             })        
             .catch(err => {
                 console.log(err);
               });
-
+              check = 1;
+        }
+    
         await assistant.message({
             assistantId: assistantIdValue,
-            sessionId: sessionIdValue.session_id,
+            sessionId: sessionIdValue,
             input: {
               'message_type': 'text',
-              'text': messages.text
+              'text': messages
               }
             })
-            .then(res => {
-              console.log(JSON.stringify(res.result, null, 2));
+            .then(ans => {
+              console.log(JSON.stringify(ans.result, null, 2));
+              //Send back to user
+              console.log("Going to send back: "+ ans.result);
+              res.send(ans.result);
             })
             .catch(err => {
               console.log(err);
