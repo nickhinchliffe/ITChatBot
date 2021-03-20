@@ -6,16 +6,19 @@ const AssistantV2 = require('ibm-watson/assistant/v2');
 const { IamAuthenticator } = require('ibm-watson/auth');
 const cors = require('cors')
 var check = 0;
+var message;
 
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 var sessionIdValue;
 
+
 app.post('/', async function (req, res) {
-    console.log("Message from server: " + req.body.text);
     // Here's how you get the data from the front-end.
-    var messages = req.body.text;
+    message = req.body.text;
+    message = String(message);
+    console.log("Message to Bot: " + message);
     // init assistant
     var assistantIdValue = '398fd1c8-a06f-4fdc-b9f1-c553d1878907';
 
@@ -29,6 +32,7 @@ app.post('/', async function (req, res) {
     // get result from starting assistant service
     try {
         if(check === 0){
+            console.log("Creating session");
             await assistant.createSession({ assistantId: assistantIdValue })
             .then(ans =>{
                 sessionIdValue = ans.result.session_id;
@@ -45,22 +49,19 @@ app.post('/', async function (req, res) {
             sessionId: sessionIdValue,
             input: {
               'message_type': 'text',
-              'text': messages
+              'text': '' + message
               }
             })
             .then(ans => {
-              console.log(JSON.stringify(ans.result, null, 2));
+              console.log(ans.result.output.generic[0]);
+              //console.log(JSON.stringify(ans.result, null, 2));
               //Send back to user
-              console.log("Going to send back: "+ ans.result);
               res.send(ans.result);
             })
             .catch(err => {
               console.log(err);
             });
-        //var x = await assistant.message(messages)
-        // Send that response back to the front-end
-        //console.log(x)
-        //res.status(200).send(x)
+
     }
     catch(e) {
         console.error(e);

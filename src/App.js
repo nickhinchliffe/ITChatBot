@@ -6,7 +6,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: []
+      messages: [{
+        user: 'ITSupportBot:',
+        text: 'Hello, how can I help you today?'
+      }]
     };
 
   }
@@ -14,10 +17,11 @@ class App extends React.Component {
   updateMessages = (obj) => {
     const cState = this.state.messages
     const updatedState = cState.concat(obj);
+    const toBot = obj;
     this.setState({
       messages : updatedState
     })
-    axios.post("http://localhost:3001/", updatedState).then(res => {
+    axios.post("http://localhost:3001/", toBot).then(res => {
       var msgBot = res.data.output.generic[0].text
       const cState2 = this.state.messages
       const botObj = {
