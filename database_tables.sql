@@ -36,6 +36,7 @@ CREATE TABLE conversationT
     conversationID  VARCHAR(6),
     clientID        VARCHAR(4),
     Date            DATE;,
+    message         VARCHAR(100),
 
     CONSTRAINT conversationT_PK PRIMARY KEY (articleID) REFERENCES clientT;
 );
