@@ -6,7 +6,9 @@ html{
   background-repeat: repeat-x;
 }
 .container{
-  background-color:whitesmoke;}
+  background-color:whitesmoke;
+  overflow: auto;
+}
 .userTextDisp{
   color: black
 }

@@ -52,6 +52,7 @@ app.post('/', async function (req, res) {
               'text': '' + message
               }
             })
+            
             .then(ans => {
               console.log(ans.result.output.generic[0]);
               //console.log(JSON.stringify(ans.result, null, 2));

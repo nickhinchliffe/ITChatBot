@@ -1,6 +1,6 @@
 import {style} from './App.css';
 import React from 'react';
-import axios from 'axios'
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -82,17 +82,24 @@ class UserInput extends React.Component {
       input => (input.value = "")
     );
   }
+  
+  handleEnter(e){
+    e.preventDefault();
+    console.log("Enter click");
+  }
 
   
   render(){
     return(
       <div>
-        <div className="Container" style={{position: "absolute", width:"15%", left:"287px"}}>
-        <label>
-          <input type="text" id="userInput" placeholder="Aa" onChange={e => this.setState({text: e.target.value})}/>
-        </label>
-        <input type="submit" value="Submit" onClick={() => this.handleSubmit()}/>
-        </div>
+        <form onSubmit={this.handleEnter}>
+          <div className="secondContainer" style={{position: "absolute", width:"15%", left:"287px"}}>
+          <label>
+            <input type="text" id="userInput" placeholder="Aa" onChange={e => this.setState({text: e.target.value})}/>
+          </label>
+            <button type="submit" onClick={() => this.handleSubmit()}>Submit</button>
+          </div>
+        </form>
       </div>
     );
   }
