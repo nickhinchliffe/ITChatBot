@@ -93,7 +93,7 @@ class UserInput extends React.Component {
     return(
       <div>
         <form onSubmit={this.handleEnter}>
-          <div className="secondContainer" style={{position: "absolute", width:"15%", left:"287px"}}>
+          <div className="secondContainer" style={{position: "absolute", width:"20%", left:"15%"}}>
           <label>
             <input type="text" id="userInput" placeholder="Aa" onChange={e => this.setState({text: e.target.value})}/>
           </label>
