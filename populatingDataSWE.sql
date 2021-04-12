@@ -1,12 +1,12 @@
 -- inserting data
 -- clientTable
 INSERT INTO clientT VALUES
-('C001','Sara',  'Phillips',  '1998/6/8', 'F', '2020/12/10'),
-('C002','Sabrina',  'Ta',  '1999/10/8', 'F', '2020/12/31'),
-('C003', 'Joseph',  'Mahmoud',  '1998/11/4', 'M', '2021/1/14'),
-('C004','Julia',  'Macdonald',  '1998/5/31', 'F', '2021/1/29'),
-('C005','Jaxon',  'Nelan',  '2000/6/8', 'M', '2021/2/5');
-('C006','Zack', 'Daubert',  '2001/3/3', 'M', '2021/3/23');
+('C001','Sara',  'Phillips', 'phillpss@wit.edu', 'password234', '1998/6/8', 'F', '2020/12/10'),
+('C002','Sabrina',  'Ta', 'tas@wit.edu', 'password34', '1999/10/8', 'F', '2020/12/31'),
+('C003', 'Joseph',  'Mahmoud', 'mahmoudjwit.edu', 'password!', '1998/11/4', 'M', '2021/1/14'),
+('C004','Julia',  'Macdonald', 'macdonaldj@wit.edu', 'password1000','1998/5/31', 'F', '2021/1/29'),
+('C005','Jaxon',  'Nelan', 'nelanj@wit.edu', 'pwisthis223', '2000/6/8', 'M', '2021/2/5');
+('C006','Zack', 'Daubert', 'daubertz@wit.edu', 'ilikepasswords33','2001/3/3', 'M', '2021/3/23');
 
 -- publisherTable
 INSERT INTO articlesT VALUES
@@ -60,6 +60,4 @@ INSERT INTO conversationT VALUES -- learn to connect the convo to convoID
 ('AAAAAF', 'C006', '2021/3/23'),
 ('AAAAAG', 'C002', '2021/2/14'),
 ('AAAAAH', 'C001', '2021/2/28'),
-
-
 
