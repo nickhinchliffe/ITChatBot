@@ -5,7 +5,7 @@ INSERT INTO clientT VALUES
 ('C002','Sabrina',  'Ta', 'tas@wit.edu', 'password34', '1999/10/8', 'F', '2020/12/31'),
 ('C003', 'Joseph',  'Mahmoud', 'mahmoudjwit.edu', 'password!', '1998/11/4', 'M', '2021/1/14'),
 ('C004','Julia',  'Macdonald', 'macdonaldj@wit.edu', 'password1000','1998/5/31', 'F', '2021/1/29'),
-('C005','Jaxon',  'Nelan', 'nelanj@wit.edu', 'pwisthis223', '2000/6/8', 'M', '2021/2/5');
+('C005','Jaxon',  'Nelan', 'nelanj@wit.edu', 'pwisthis223', '2000/6/8', 'M', '2021/2/5'),
 ('C006','Zack', 'Daubert', 'daubertz@wit.edu', 'ilikepasswords33','2001/3/3', 'M', '2021/3/23');
 
 -- publisherTable
@@ -14,7 +14,7 @@ INSERT INTO articlesT VALUES
 ('100002',  'Resetting Passwords',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=c730039f1bb2d0102cb1b992cc4bcb4c', 'forgot old new password reset passwords pass cannot login'),
 ('100003',  'Connecting other devices to Wireless',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=d1a1be601b4394102cb1b992cc4bcb61', 'connecting wireless device adruino raspberry pi smart devices google home alexa amazon firestick chromecast'),
 ('100004',  'Software Licenses',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=2e61e25c1b4ee4505cc50fe7cc4bcbb7', 'software licenses how obtain license'),
-('100005',  'Installing Software on a PC',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=39c0cc2f1b2c64102cb1b992cc4bcb95', 'installing download software pc vpn');
+('100005',  'Installing Software on a PC',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=39c0cc2f1b2c64102cb1b992cc4bcb95', 'installing download software pc vpn'),
 ('100006',  'Off-Campus Software Access',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=c7a18477dba42810228a45d30596199b','software access off campus not in campus vpn'),
 ('100007',  'Off Campus Login Guide',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=102c5099dbad6410228a45d30596193a', 'off campus log in not on campus'),
 ('100008',  'Aimsun Next',  'https://wit.service-now.com/techspot?sys_kb_id=49f66e681b0394102cb1b992cc4bcb06&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=b3dcff591bd7581063590d87cc4bcbf3', 'aimsun next download off campus license'),
@@ -42,22 +42,21 @@ INSERT INTO articlesT VALUES
 ('100030',  'OneDrive',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=b739519a1b070410422c31dcdd4bcb1c', 'OneDrive backup file savings one drive'),
 ('100031',  'Laptop Repair',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=f88925efdbcf08106bb3f13968961939', 'Laptop Repair broken screen cracked not working liquid sticky broke fell'),
 ('100032',  'Rhino',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=73b5d6f51b5b14502cb1b992cc4bcbdb', 'Rhino download install'),
-('100031',  'Tech Spot',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=85f71f161bd7cc10422c31dcdd4bcb61', 'Tech Spot support help'),
-('100032',  'Zoom Conferencing',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=e305f4ce1bc758102cb1b992cc4bcbfa', 'zoom video call class conference'),
-('100031',  'Master of Architecture',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=57f21f121bd7cc10422c31dcdd4bcb41', 'Master of Architecture graduate arch'),
-('100032',  'Readmitted Students',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=cff29b121bd7cc10422c31dcdd4bcbf8', 'coming back old student readmitted readmitting returning'),
-('100031',  'Co-op & Student Employment',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=f5c99b961bd7cc10422c31dcdd4bcb9b', 'coop co op student employment campus jobs'),
-('100032',  'Viruses and Spyware',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=35db616e1bcf0410422c31dcdd4bcbaf', 'virus spyware bug phishing advertising ads'),
+('100033',  'Tech Spot',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=85f71f161bd7cc10422c31dcdd4bcb61', 'Tech Spot support help'),
+('100034',  'Zoom Conferencing',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=e305f4ce1bc758102cb1b992cc4bcbfa', 'zoom video call class conference'),
+('100035',  'Master of Architecture',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=57f21f121bd7cc10422c31dcdd4bcb41', 'Master of Architecture graduate arch'),
+('100036',  'Readmitted Students',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=cff29b121bd7cc10422c31dcdd4bcbf8', 'coming back old student readmitted readmitting returning'),
+('100037',  'Co-op & Student Employment',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=f5c99b961bd7cc10422c31dcdd4bcb9b', 'coop co op student employment campus jobs'),
+('100038',  'Viruses and Spyware',  'https://wit.service-now.com/techspot?id=kb_article_view&sys_kb_id=35db616e1bcf0410422c31dcdd4bcbaf', 'virus spyware bug phishing advertising ads');
 
 
 -- systemRequirementsTable
 INSERT INTO conversationT VALUES -- learn to connect the convo to convoID
-('AAAAAA', 'C001', '2020/12/10'),
-('AAAAAB', 'C002', '2020/12/31'),
-('AAAAAC', 'C003', '2021/1/14'),
-('AAAAAD', 'C004', '2021/1/29'),
-('AAAAAE', 'C005', '2021/2/5'),
-('AAAAAF', 'C006', '2021/3/23'),
-('AAAAAG', 'C002', '2021/2/14'),
-('AAAAAH', 'C001', '2021/2/28'),
-
+('AAAAAA', 'C001', '100026', '2020/12/10'),
+('AAAAAB', 'C002', '100026', '2020/12/31'),
+('AAAAAC', 'C003', '100026', '2021/1/14'),
+('AAAAAD', 'C004', '100026', '2021/1/29'),
+('AAAAAE', 'C005', '100026', '2021/2/5'),
+('AAAAAF', 'C006', '100026', '2021/3/23'),
+('AAAAAG', 'C002', '100026', '2021/2/14'),
+('AAAAAH', 'C001', '100026', '2021/2/28');
