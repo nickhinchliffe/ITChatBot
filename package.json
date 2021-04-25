@@ -9,10 +9,16 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "ibm-watson": "^6.0.3",
+    "mysql": "^2.18.1",
+    "net": "^1.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.1"
+    "socket.io": "^4.0.1",
+    "socket.io-client": "^4.0.1",
+    "tedious": "^11.0.7",
+    "web-vitals": "^1.1.1",
+    "websocket": "^1.0.34"
   },
   "scripts": {
     "start": "react-scripts start",

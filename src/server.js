@@ -6,6 +6,8 @@ const AssistantV2 = require('ibm-watson/assistant/v2');
 const { IamAuthenticator } = require('ibm-watson/auth');
 const cors = require('cors')
 var check = 0;
+var del = 0;
+
 var message;
 
 app.use(cors())
@@ -13,9 +15,16 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 var sessionIdValue;
 
+/*
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server();
+*/
 
 app.post('/', async function (req, res) {
     // Here's how you get the data from the front-end.
+
     message = req.body.text;
     message = String(message);
     console.log("Message to Bot: " + message);
@@ -31,6 +40,7 @@ app.post('/', async function (req, res) {
     });
     // get result from starting assistant service
     try {
+      if(del === 0){  
         if(check === 0){
             console.log("Creating session");
             await assistant.createSession({ assistantId: assistantIdValue })
@@ -54,15 +64,43 @@ app.post('/', async function (req, res) {
             })
             
             .then(ans => {
-              console.log(ans.result.output.generic[0]);
+              var checkText = ans.result.output.generic[0].text
+              console.log(checkText);
               //console.log(JSON.stringify(ans.result, null, 2));
               //Send back to user
+
               res.send(ans.result);
+              
+              //Check to see if the customer wants to speak to a human
+              if(checkText == 'I will connect you to a human right away!'){
+                del = 1;
+              }
+              
             })
             .catch(err => {
               console.log(err);
             });
 
+        // If the customer wants to speak to a human
+        if(del === 1){
+          await assistant.deleteSession({
+            assistantId: assistantIdValue,
+            sessionId: sessionIdValue,
+          })
+            .then(res => {
+              //console.log(res.result.output.generic[0]);
+              //res.send(res.result);
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        }  
+
+      }
+      else{
+        //console.log("Human time!!!");
+        //res.send(message);
+      }
     }
     catch(e) {
         console.error(e);
@@ -70,4 +108,4 @@ app.post('/', async function (req, res) {
     }
 })
 
-app.listen(3001)
+app.listen(4000)

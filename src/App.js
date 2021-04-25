@@ -1,6 +1,12 @@
 import {style} from './App.css';
 import React from 'react';
 import axios from 'axios';
+import { w3cwebsocket as W3CWebSocket } from "websocket";
+
+var switchToHuman = 0;
+var client = 0;
+var clientOn = false; 
+var clientOpen = false;
 
 class App extends React.Component {
   constructor(props) {
@@ -13,31 +19,78 @@ class App extends React.Component {
     };
 
   }
+
   
   updateMessages = (obj) => {
     const cState = this.state.messages
     const updatedState = cState.concat(obj);
-    const toBot = obj;
+    const toSrv = obj;
+    const toSrvText = obj.text;
     this.setState({
       messages : updatedState
     })
-    axios.post("http://localhost:3001/", toBot).then(res => {
-      var msgBot = res.data.output.generic[0].text
-      const cState2 = this.state.messages
-      const botObj = {
-        user: 'ITSupportBot:',
-        text: msgBot
+    
+      if(switchToHuman === 0){
+        axios.post("http://localhost:4000/", toSrv).then(res => {
+        var msgSrv = res.data.output.generic[0].text
+        console.log(msgSrv);
+        if(msgSrv === 'I will connect you to a human right away!'){
+          switchToHuman = 1;
+          console.log("Switch to human");
+        }
+        const cState2 = this.state.messages
+        const botObj = {
+          user: 'IT Support Bot:',
+          text: msgSrv
+        }
+      
+        const updatedState2 = cState2.concat(botObj);
+        this.setState({
+          messages: updatedState2
+        })
+
+        }).catch(e => {
+          console.error(e);
+        })
       }
-      const updatedState2 = cState2.concat(botObj);
-      this.setState({
-        messages: updatedState2
-      })
-    }).catch(e => {
-      console.error(e);
-    })
+      else{
+        if(clientOn === false){
+          client = new W3CWebSocket('ws://127.0.0.1:9000');
+          console.log("Client socket created")
+          clientOn = true
+        }
+        client.onopen = () =>{
+          clientOpen = true;
+        }
+        
+        if(clientOpen === true){
+          client.send(toSrvText);
+        }
+
+        client.onmessage = (message) =>{
+          console.log(message);
+          console.log(message.data);
+          const dataSrv = message.data;
+          const cState3 = this.state.messages
+          const staffObj = {
+          user: 'IT Support Staff',
+          text: dataSrv
+        }
+      
+        const updatedState3 = cState3.concat(staffObj);
+        this.setState({
+          messages: updatedState3
+        })
+
+        }
+
+
+      }
   }
+
+
   
-  render() {
+  render(){
     return(
       <div>
         <div style={{display: "block", margin: "auto"}}>
