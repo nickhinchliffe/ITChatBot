@@ -1,6 +1,4 @@
-![Build and Test](https://github.com/drphamwit/swe-sample-project-github-repo/workflows/Build%20and%20Test/badge.svg)
-
-# Your project name
+# IT Chat Support Bot
 
 This is a sample README file. It is required to have all sections below at the minimum but feel free to add more if you want. Also, it is recommended to follow the same formats with headers, bullet points, highlights...
 
