@@ -20,6 +20,7 @@ List all the functions with their sub functions of your application.
 ### Installation and Setup
 1. Clone this respository
 2. Check to see if the local machine has node and npm installed:
+	
 	npm -v
 	
 	node -v
