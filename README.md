@@ -21,6 +21,7 @@ List all the functions with their sub functions of your application.
 1. Clone this respository
 2. Check to see if the local machine has node and npm installed:
 	npm -v
+	
 	node -v
 3. If you machine does not have node or npm, please download Node.js to support servers and react: https://nodejs.org/en/download/
 4. In the cloned repository, type: npm install. This will update the npm version of the package to the one currently on the local machine.
