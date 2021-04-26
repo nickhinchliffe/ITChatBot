@@ -1,12 +1,8 @@
 # IT Chat Support Bot
 
-This is a sample README file. It is required to have all sections below at the minimum but feel free to add more if you want. Also, it is recommended to follow the same formats with headers, bullet points, highlights...
-
-Here is a README.md example: https://github.com/drphamwit/swe-sample-project-github-repo/blob/master/README-Example.md
-
 ## Introduction
 
-Briefly describe what your project is all about.
+The IT Chat Support Bot is a UI which interfaces with IBM Watson for technical support help. The idea is that a user will first interace with the Watson Support Bot before moving on to a IT Support Staff Agent. The customer can interact with the IT Support Staff agent through the same GUI when the user tells the Bot they want to speak with a human. From there, the customer and the IT Support Staff agent will be able to conversate.
 
 ## Functions
 List all the functions with their sub functions of your application.
@@ -39,7 +35,7 @@ How to record your screen: https://www.techradar.com/how-to/record-your-screen
 
 ## Contributors
 
-* student name (email), role
-* student name (email), role
-* ...
+* Nick Hinchliffe
+* Sarah Kaczynski
+* Aless Mangialardo
 
