@@ -24,8 +24,11 @@ List all the functions with their sub functions of your application.
 	npm -v
 	node -v
 3. If you machine does not have node or npm, please download Node.js to support servers and react: https://nodejs.org/en/download/
+4. In the cloned repository, type npm install. This will update the npm version of the package to the one currently on the local machine.
+5. Start the Watson development server, which lives in the same folder, by typing: node src/server.js
+6. Start the customer-server server, again which lives in the same folder, by typing: node src/s
 
-4. Install dependencies?
+
 
 ### Run
 1. 
